@@ -10,30 +10,39 @@
   <div id="status">Please wait</div>
 
   <script>
+    // Function to run the loading animation
     function runLoadingAnimation() {
+      // Get the loader and status elements using their IDs
       const loader = document.getElementById("loader");
       const status = document.getElementById("status");
 
+      // Array of emojis to cycle through for the loading animation
       const frames = ["⏳", "⌛", ".", "..", "..."];
       let index = 0;
       let cycleCount = 0;
       const maxCycles = 10;
 
+      // setInterval creates a loop
       const interval = setInterval(() => {
+        // Update the loader with the current emoji
         loader.textContent = frames[index % frames.length];
         index++;
+        // Check if a full cycle of emojis has been completed
         if (index % frames.length === 0) {
           cycleCount++;
         }
+        // Check if the maximum number of cycles has been reached
         if (cycleCount >= maxCycles) {
-          clearInterval(interval);
+          // Stop the loop or else setInterval will continue to run
+          clearInterval(interval);  
+          // Update the loader and status with a new emoji and text
           loader.textContent = "✅";
           status.textContent = "Done!";
         }
-      }, 500);
+      }, 500); // Run loop every 500 milliseconds 
     }
 
-    runLoadingAnimation();
+    runLoadingAnimation(); // Start the loading animation
   </script>
 
 </body>
