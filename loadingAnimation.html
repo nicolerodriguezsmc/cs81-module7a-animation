@@ -5,17 +5,14 @@
   <title>Loading Animation Simulator</title>
 </head>
 <body style="font-family: monospace; text-align: center; padding-top: 100px; background-color: #f4f4f4;">
-
   <div id="loader" style="font-size: 2rem; margin-bottom: 20px;">Loading...</div>
   <div id="status">Please wait</div>
-
   <script>
     // Function to run the loading animation
     function runLoadingAnimation() {
       // Get the loader and status elements using their IDs
       const loader = document.getElementById("loader");
       const status = document.getElementById("status");
-
       // Array of emojis to cycle through for the loading animation
       const frames = ["⏳", "⌛", ".", "..", "..."];
       let index = 0;
@@ -27,38 +24,40 @@
         // Update the loader with the current emoji
         loader.textContent = frames[index % frames.length];
         index++;
+
         // Check if a full cycle of emojis has been completed
         if (index % frames.length === 0) {
           cycleCount++;
         }
-          // Change background color based on cycle count
-          if (cycleCount <= 5) {
-            document.body.style.backgroundColor = "red"; //Change BG to red
-          } else if (cycleCount <= 10) {
-            document.body.style.backgroundColor = "yellow"; //Change BG to yellow
-          }
+
+        // Change background color based on cycle count
+        if (cycleCount <= 5) {
+          document.body.style.backgroundColor = "red"; // Change BG to red
+        } else if (cycleCount <= 10) {
+          document.body.style.backgroundColor = "yellow"; // Change BG to yellow
         }
+
         // Check if the maximum number of cycles has been reached
         if (cycleCount >= maxCycles) {
           // Stop the loop or else setInterval will continue to run
-          clearInterval(interval);  
+          clearInterval(interval);
           // Update the loader and status with a new emoji and text
           loader.textContent = "✅";
           status.textContent = "Done!";
-          ocument.body.style.backgroundColor = "green"; // Change BG to green
-
+          document.body.style.backgroundColor = "green"; // Change BG to green
         }
-      }, 500); // Run loop every 500 milliseconds 
+      }, 500); // Run loop every 500 milliseconds
     }
 
     runLoadingAnimation(); // Start the loading animation
 
-    /* Creative Idea: maybe jeopardy waiting music can play while the animation is 
-    * loading. A triumphant sound like cheering and fireworks can play when the 
-    * content is done loading. 
+    /* Creative Idea: maybe jeopardy waiting music can play while the animation is
+    * loading. A triumphant sound like cheering and fireworks can play when the
+    * content is done loading.
     */
   </script>
-
 </body>
+</html>
+
 </html>
   
