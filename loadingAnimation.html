@@ -31,6 +31,13 @@
         if (index % frames.length === 0) {
           cycleCount++;
         }
+          // Change background color based on cycle count
+          if (cycleCount <= 5) {
+            document.body.style.backgroundColor = "red"; //Change BG to red
+          } else if (cycleCount <= 10) {
+            document.body.style.backgroundColor = "yellow"; //Change BG to yellow
+          }
+        }
         // Check if the maximum number of cycles has been reached
         if (cycleCount >= maxCycles) {
           // Stop the loop or else setInterval will continue to run
@@ -38,6 +45,8 @@
           // Update the loader and status with a new emoji and text
           loader.textContent = "✅";
           status.textContent = "Done!";
+          ocument.body.style.backgroundColor = "green"; // Change BG to green
+
         }
       }, 500); // Run loop every 500 milliseconds 
     }
